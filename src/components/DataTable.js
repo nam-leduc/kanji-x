@@ -11,7 +11,6 @@ const StyledButton = styled(Button)(({ theme }) => ({
   padding: theme.spacing(2),
   textAlign: "center",
   fontSize: 32,
-  minWidth: 100,
 }));
 
 function Kanji({ defaultCell }) {
