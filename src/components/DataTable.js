@@ -2,9 +2,6 @@ import * as React from "react";
 import { styled } from "@mui/material/styles";
 import { Button, Grid } from "@mui/material";
 import { Box } from "@mui/system";
-import ROWS from "./ROWS";
-
-console.log(ROWS);
 
 const StyledButton = styled(Button)(({ theme }) => ({
   ...theme.typography.body2,
@@ -53,11 +50,16 @@ function Kanji({ defaultCell }) {
   );
 }
 
-export default function BasicTable() {
+export default function DataTable({table}) {
+  console.log(table);
+  if (!table) {
+    return <></>;
+  }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container columns={{ xs: 5 }} spacing={2}>
-        {ROWS.map((kanji) => (
+        {table.cols.map((kanji) => (
           <Grid item xs={1} key={kanji.kanji}>
             <Kanji defaultCell={kanji}></Kanji>
           </Grid>
